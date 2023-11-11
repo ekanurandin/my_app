@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
 
 # Create your views here.
-def beranda(req):
-    return render(req, "menu.html")
+def home(request):
+  template = loader.get_template('beranda.html')
+  return HttpResponse(template.render())
 
-def menu(req):
-    return render(req, "myfisrt.html")
+def menu(request):
+  template = loader.get_template('menu.html')
+  return HttpResponse(template.render())
